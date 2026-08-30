@@ -1,0 +1,30 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","additionalProperties":false,
+  "required":["rule_id","organization_id","name","enabled","trigger","conditions","actions","revision","next_fire_at","created_at","updated_at"],
+  "properties":{
+    "rule_id":{"type":"string"},"organization_id":{"type":"string"},"name":{"type":"string"},"enabled":{"type":"boolean"},
+    "trigger":{"$ref":"#/$defs/Trigger"},"conditions":{"type":"array","items":{"$ref":"#/$defs/Condition"}},
+    "actions":{"type":"array","items":{"$ref":"#/$defs/Action"}},"revision":{"type":"string","pattern":"^[1-9][0-9]*$"},
+    "next_fire_at":{"type":["string","null"],"format":"date-time"},"created_at":{"type":"string","format":"date-time"},"updated_at":{"type":"string","format":"date-time"}
+  },
+  "$defs":{
+    "Trigger":{"type":"object","additionalProperties":false,"required":["kind","event_types","interval_seconds","start_at"],"properties":{
+      "kind":{"type":"string","enum":["event","schedule"]},
+      "event_types":{"type":"array","items":{"type":"string","enum":["issue_created","issue_updated","issue_moved","issue_archived","comment_added","project_created","project_updated","project_archived"]}},
+      "interval_seconds":{"type":["integer","null"],"minimum":60,"maximum":31536000},
+      "start_at":{"type":["string","null"],"format":"date-time"}
+    }},
+    "Condition":{"type":"object","additionalProperties":false,"required":["field","operator","value"],"properties":{
+      "field":{"type":"string","enum":["event_type","entity_kind","team_id","project_id","workflow_state_id","priority","status_id","label_id"]},
+      "operator":{"type":"string","enum":["equals","not_equals","contains"]},"value":{"type":"string"}
+    }},
+    "Action":{"type":"object","additionalProperties":false,"required":["kind","issue_id","project_id","team_id","workflow_state_id","title","description","priority","replace_labels","label_ids","comment_body","project_name","project_summary","status_id"],"properties":{
+      "kind":{"type":"string","enum":["assign_issue_to_team","update_issue","move_issue","add_comment","update_project"]},
+      "issue_id":{"type":["string","null"]},"project_id":{"type":["string","null"]},
+      "team_id":{"type":["string","null"]},"workflow_state_id":{"type":["string","null"]},"title":{"type":["string","null"]},
+      "description":{"type":["string","null"]},"priority":{"oneOf":[{"type":"string","enum":["none","urgent","high","medium","low"]},{"type":"null"}]},
+      "replace_labels":{"type":"boolean"},"label_ids":{"type":"array","items":{"type":"string"}},"comment_body":{"type":["string","null"]},
+      "project_name":{"type":["string","null"]},"project_summary":{"type":["string","null"]},"status_id":{"type":["string","null"]}
+    }}
+  }
+}

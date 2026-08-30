@@ -1,0 +1,13 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","additionalProperties":false,
+  "required":["schema","database_url_secret","auth_issuer","auth_assertion_public_key","admin_callers","event_callers","timer_callers","execution_callers","jobs_queue","execution_lease_seconds","job_max_attempts","max_reconcile_items"],
+  "properties":{
+    "schema":{"type":"string"},"database_url_secret":{"type":"string"},"auth_issuer":{"type":"string"},"auth_assertion_public_key":{"type":"string"},
+    "admin_callers":{"type":"array","minItems":1,"maxItems":64,"items":{"type":"string"}},
+    "event_callers":{"type":"array","minItems":1,"maxItems":64,"items":{"type":"string"}},
+    "timer_callers":{"type":"array","minItems":1,"maxItems":64,"items":{"type":"string"}},
+    "execution_callers":{"type":"array","minItems":1,"maxItems":64,"items":{"type":"string"}},
+    "jobs_queue":{"type":"string"},"execution_lease_seconds":{"type":"integer","minimum":30,"maximum":3600},
+    "job_max_attempts":{"type":"integer","minimum":1,"maximum":100},"max_reconcile_items":{"type":"integer","minimum":1,"maximum":100}
+  }
+}

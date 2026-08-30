@@ -1,0 +1,6 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","additionalProperties":false,
+  "required":["claimed","succeeded","failed","schedule_enqueued","schedule_pending"],"properties":{
+    "claimed":{"type":"integer"},"succeeded":{"type":"integer"},"failed":{"type":"integer"},"schedule_enqueued":{"type":"integer"},"schedule_pending":{"type":"integer"}
+  }
+}
