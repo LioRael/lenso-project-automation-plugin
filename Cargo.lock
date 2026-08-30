@@ -745,7 +745,7 @@ version = "0.1.0"
 source = "git+https://github.com/LioRael/lenso-access-control-plugin?rev=de1e1f1ec61232b13fc90a05f1cb4e3fc96ba420#de1e1f1ec61232b13fc90a05f1cb4e3fc96ba420"
 dependencies = [
  "futures",
- "lenso-contract-codegen",
+ "lenso-contract-codegen 0.6.3",
  "lenso-contract-runtime",
  "lenso-kernel",
  "lenso-plugin-authoring",
@@ -759,8 +759,8 @@ version = "0.1.2"
 source = "git+https://github.com/LioRael/lenso-auth-plugin?rev=b4a2f53df882ae51021aa3d5922d8ee41bf97c72#b4a2f53df882ae51021aa3d5922d8ee41bf97c72"
 dependencies = [
  "futures",
- "lenso-contract-authoring",
- "lenso-contract-codegen",
+ "lenso-contract-authoring 0.1.1 (git+https://github.com/LioRael/lenso-protocols?rev=9769bc5dc828fd9111da6d28a4ecd5f1bb198ab4)",
+ "lenso-contract-codegen 0.6.3",
  "lenso-contract-runtime",
  "lenso-kernel",
  "lenso-plugin-authoring",
@@ -771,11 +771,11 @@ dependencies = [
 
 [[package]]
 name = "lenso-capability-jobs"
-version = "0.1.0"
-source = "git+https://github.com/LioRael/lenso-jobs-plugin?rev=f677c7e6c515a08429d191647d77cafa596efdf6#f677c7e6c515a08429d191647d77cafa596efdf6"
+version = "0.1.2"
+source = "git+https://github.com/LioRael/lenso-jobs-plugin?rev=a8be81775df951fd8c958615519dea0ef179620d#a8be81775df951fd8c958615519dea0ef179620d"
 dependencies = [
  "futures",
- "lenso-contract-codegen",
+ "lenso-contract-codegen 0.6.4",
  "lenso-contract-runtime",
  "lenso-kernel",
  "lenso-plugin-authoring",
@@ -789,7 +789,7 @@ version = "0.1.0"
 source = "git+https://github.com/LioRael/lenso-organization-plugin?rev=9572afd465ba2f952b646ec16935c0274f66c82a#9572afd465ba2f952b646ec16935c0274f66c82a"
 dependencies = [
  "futures",
- "lenso-contract-codegen",
+ "lenso-contract-codegen 0.6.3",
  "lenso-contract-runtime",
  "lenso-kernel",
  "lenso-plugin-authoring",
@@ -802,7 +802,7 @@ name = "lenso-capability-project-automation"
 version = "0.1.0"
 dependencies = [
  "futures",
- "lenso-contract-codegen",
+ "lenso-contract-codegen 0.6.3",
  "lenso-contract-runtime",
  "lenso-kernel",
  "lenso-plugin-authoring",
@@ -816,7 +816,7 @@ version = "0.1.0"
 source = "git+https://github.com/LioRael/lenso-projects-plugin?rev=70d1d6fb9ba5b05ff0100273ddfd10a424030edf#70d1d6fb9ba5b05ff0100273ddfd10a424030edf"
 dependencies = [
  "futures",
- "lenso-contract-codegen",
+ "lenso-contract-codegen 0.6.3",
  "lenso-contract-runtime",
  "lenso-kernel",
  "lenso-plugin-authoring",
@@ -830,7 +830,7 @@ version = "0.1.0"
 source = "git+https://github.com/LioRael/lenso-projects-plugin?rev=70d1d6fb9ba5b05ff0100273ddfd10a424030edf#70d1d6fb9ba5b05ff0100273ddfd10a424030edf"
 dependencies = [
  "futures",
- "lenso-contract-codegen",
+ "lenso-contract-codegen 0.6.3",
  "lenso-contract-runtime",
  "lenso-kernel",
  "lenso-plugin-authoring",
@@ -844,7 +844,7 @@ version = "0.1.1"
 source = "git+https://github.com/LioRael/lenso-secrets-plugin?rev=c31aa142ff59b4536e2bf3e9785ccbb5bb5c0e6a#c31aa142ff59b4536e2bf3e9785ccbb5bb5c0e6a"
 dependencies = [
  "futures",
- "lenso-contract-codegen",
+ "lenso-contract-codegen 0.6.3",
  "lenso-contract-runtime",
  "lenso-kernel",
  "lenso-plugin-authoring",
@@ -857,7 +857,17 @@ name = "lenso-contract-authoring"
 version = "0.1.1"
 source = "git+https://github.com/LioRael/lenso-protocols?rev=9769bc5dc828fd9111da6d28a4ecd5f1bb198ab4#9769bc5dc828fd9111da6d28a4ecd5f1bb198ab4"
 dependencies = [
- "lenso-contract-authoring-macros",
+ "lenso-contract-authoring-macros 0.1.0 (git+https://github.com/LioRael/lenso-protocols?rev=9769bc5dc828fd9111da6d28a4ecd5f1bb198ab4)",
+ "schemars",
+ "serde_json",
+]
+
+[[package]]
+name = "lenso-contract-authoring"
+version = "0.1.1"
+source = "git+https://github.com/LioRael/lenso-protocols?rev=9d2774c767fd64a6cc63a5ac04360e9cb92816da#9d2774c767fd64a6cc63a5ac04360e9cb92816da"
+dependencies = [
+ "lenso-contract-authoring-macros 0.1.0 (git+https://github.com/LioRael/lenso-protocols?rev=9d2774c767fd64a6cc63a5ac04360e9cb92816da)",
  "schemars",
  "serde_json",
 ]
@@ -873,11 +883,31 @@ dependencies = [
 ]
 
 [[package]]
+name = "lenso-contract-authoring-macros"
+version = "0.1.0"
+source = "git+https://github.com/LioRael/lenso-protocols?rev=9d2774c767fd64a6cc63a5ac04360e9cb92816da#9d2774c767fd64a6cc63a5ac04360e9cb92816da"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.119",
+]
+
+[[package]]
 name = "lenso-contract-codegen"
 version = "0.6.3"
 source = "git+https://github.com/LioRael/lenso-protocols?rev=9769bc5dc828fd9111da6d28a4ecd5f1bb198ab4#9769bc5dc828fd9111da6d28a4ecd5f1bb198ab4"
 dependencies = [
- "lenso-contract-authoring",
+ "lenso-contract-authoring 0.1.1 (git+https://github.com/LioRael/lenso-protocols?rev=9769bc5dc828fd9111da6d28a4ecd5f1bb198ab4)",
+ "semver",
+ "serde_json",
+]
+
+[[package]]
+name = "lenso-contract-codegen"
+version = "0.6.4"
+source = "git+https://github.com/LioRael/lenso-protocols?rev=9d2774c767fd64a6cc63a5ac04360e9cb92816da#9d2774c767fd64a6cc63a5ac04360e9cb92816da"
+dependencies = [
+ "lenso-contract-authoring 0.1.1 (git+https://github.com/LioRael/lenso-protocols?rev=9d2774c767fd64a6cc63a5ac04360e9cb92816da)",
  "semver",
  "serde_json",
 ]
