@@ -18,9 +18,10 @@ lenso = { version = "0.5.0", git = "https://github.com/LioRael/lenso-runtime-rus
 lenso-app-plan = { version = "0.3.0", git = "https://github.com/LioRael/lenso", rev = "cd35675a191d815b690c8889756dfe859a0e4d7b" }
 lenso-auth-sdk = { version = "0.2.1", git = "https://github.com/LioRael/lenso-auth-plugin", rev = "b4a2f53df882ae51021aa3d5922d8ee41bf97c72" }
 lenso-capability-access-control = { version = "0.1.0", git = "https://github.com/LioRael/lenso-access-control-plugin", rev = "de1e1f1ec61232b13fc90a05f1cb4e3fc96ba420" }
-# Keep the published dependency exact as well: this revision shares the
-# runtime/protocol graph required by the linked Port types.
-lenso-capability-jobs = { version = "=0.1.0", git = "https://github.com/LioRael/lenso-jobs-plugin", rev = "f677c7e6c515a08429d191647d77cafa596efdf6" }
+# Keep development on the revision that shares this linked Plugin's
+# runtime/protocol graph. Cargo normalizes the compatible version requirement
+# to crates.io when packaging, where the packaged lock selects the fixed 0.1.1 release.
+lenso-capability-jobs = { version = ">=0.1.0, <0.1.2", git = "https://github.com/LioRael/lenso-jobs-plugin", rev = "f677c7e6c515a08429d191647d77cafa596efdf6" }
 lenso-capability-organization-membership = { version = "0.1.0", git = "https://github.com/LioRael/lenso-organization-plugin", rev = "9572afd465ba2f952b646ec16935c0274f66c82a" }
 lenso-capability-projects = { version = "0.1.0", git = "https://github.com/LioRael/lenso-projects-plugin", rev = "70d1d6fb9ba5b05ff0100273ddfd10a424030edf" }
 lenso-capability-projects-collaboration = { version = "0.1.0", git = "https://github.com/LioRael/lenso-projects-plugin", rev = "70d1d6fb9ba5b05ff0100273ddfd10a424030edf" }
