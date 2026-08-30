@@ -1,0 +1,22 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","additionalProperties":false,
+  "required":["execution_id","rule_id","trigger_id","status","attempts","last_failure","created_at","updated_at","attempt_receipts","next_attempt_cursor","actions"],
+  "properties":{
+    "execution_id":{"type":"string"},"rule_id":{"type":"string"},"trigger_id":{"type":"string"},
+    "status":{"type":"string","enum":["pending","running","succeeded","failed"]},"attempts":{"type":"integer"},"last_failure":{"type":["string","null"]},
+    "created_at":{"type":"string","format":"date-time"},"updated_at":{"type":"string","format":"date-time"},
+    "attempt_receipts":{"type":"array","items":{"$ref":"#/$defs/AttemptReceipt"}},
+    "next_attempt_cursor":{"type":["string","null"],"pattern":"^[1-9][0-9]*$"},
+    "actions":{"type":"array","items":{"$ref":"#/$defs/ActionReceipt"}}
+  },
+  "$defs":{
+    "AttemptReceipt":{"type":"object","additionalProperties":false,"required":["attempt","worker_instance","status","failure","started_at","completed_at"],"properties":{
+      "attempt":{"type":"integer"},"worker_instance":{"type":"string"},"status":{"type":"string","enum":["running","succeeded","failed","retryable"]},
+      "failure":{"type":["string","null"]},"started_at":{"type":"string","format":"date-time"},"completed_at":{"type":["string","null"],"format":"date-time"}
+    }},
+    "ActionReceipt":{"type":"object","additionalProperties":false,"required":["action_index","kind","status","attempts","idempotency_key","last_failure","updated_at"],"properties":{
+    "action_index":{"type":"integer"},"kind":{"type":"string"},"status":{"type":"string","enum":["pending","succeeded","failed"]},"attempts":{"type":"integer"},
+    "idempotency_key":{"type":"string"},"last_failure":{"type":["string","null"]},"updated_at":{"type":"string","format":"date-time"}
+  }}
+  }
+}

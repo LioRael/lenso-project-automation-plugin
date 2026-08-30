@@ -1,0 +1,11 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","additionalProperties":false,
+  "required":["organization_id","dedupe_key","event_type","entity_kind","entity_id","project_id","team_id","workflow_state_id","priority","status_id","label_ids","occurred_at"],
+  "properties":{
+    "organization_id":{"type":"string"},"dedupe_key":{"type":"string"},
+    "event_type":{"type":"string","enum":["issue_created","issue_updated","issue_moved","issue_archived","comment_added","project_created","project_updated","project_archived"]},
+    "entity_kind":{"type":"string","enum":["issue","project"]},"entity_id":{"type":"string"},"project_id":{"type":["string","null"]},"team_id":{"type":["string","null"]},
+    "workflow_state_id":{"type":["string","null"]},"priority":{"oneOf":[{"type":"string","enum":["none","urgent","high","medium","low"]},{"type":"null"}]},
+    "status_id":{"type":["string","null"]},"label_ids":{"type":"array","items":{"type":"string"}},"occurred_at":{"type":"string","format":"date-time"}
+  }
+}

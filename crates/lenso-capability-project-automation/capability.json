@@ -1,0 +1,18 @@
+{
+  "id": "lenso.project-automation@1",
+  "version": "1.0.0",
+  "portable": true,
+  "cross_lane_transfer": true,
+  "operations": [
+    {"name":"create_rule","interaction":"request","request_schema":"schemas/create-rule-request.schema.json","response_schema":"schemas/rule-response.schema.json","domain_error_schema":"schemas/automation-error.schema.json"},
+    {"name":"get_rule","interaction":"request","request_schema":"schemas/get-rule-request.schema.json","response_schema":"schemas/rule-response.schema.json","domain_error_schema":"schemas/automation-error.schema.json"},
+    {"name":"list_rules","interaction":"request","request_schema":"schemas/list-rules-request.schema.json","response_schema":"schemas/list-rules-response.schema.json","domain_error_schema":"schemas/automation-error.schema.json"},
+    {"name":"update_rule","interaction":"request","request_schema":"schemas/update-rule-request.schema.json","response_schema":"schemas/rule-response.schema.json","domain_error_schema":"schemas/automation-error.schema.json"},
+    {"name":"set_rule_enabled","interaction":"request","request_schema":"schemas/set-rule-enabled-request.schema.json","response_schema":"schemas/rule-response.schema.json","domain_error_schema":"schemas/automation-error.schema.json"},
+    {"name":"delete_rule","interaction":"request","request_schema":"schemas/delete-rule-request.schema.json","response_schema":"schemas/delete-rule-response.schema.json","domain_error_schema":"schemas/automation-error.schema.json"},
+    {"name":"receive_event","interaction":"request","request_schema":"schemas/receive-event-request.schema.json","response_schema":"schemas/trigger-receipt-response.schema.json","domain_error_schema":"schemas/automation-error.schema.json"},
+    {"name":"receive_timer","interaction":"request","request_schema":"schemas/receive-timer-request.schema.json","response_schema":"schemas/trigger-receipt-response.schema.json","domain_error_schema":"schemas/automation-error.schema.json"},
+    {"name":"reconcile","interaction":"request","request_schema":"schemas/reconcile-request.schema.json","response_schema":"schemas/reconcile-response.schema.json","domain_error_schema":"schemas/automation-error.schema.json"},
+    {"name":"inspect_execution","interaction":"request","request_schema":"schemas/inspect-execution-request.schema.json","response_schema":"schemas/inspect-execution-response.schema.json","domain_error_schema":"schemas/automation-error.schema.json"}
+  ]
+}

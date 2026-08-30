@@ -1,0 +1,9 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","additionalProperties":false,
+  "required":["idempotency_key","organization_id","rule_id","name","enabled","trigger","conditions","actions"],
+  "properties":{
+    "idempotency_key":{"type":"string"},"organization_id":{"type":"string"},"rule_id":{"type":"string"},"name":{"type":"string"},"enabled":{"type":"boolean"},
+    "trigger":{"$ref":"rule-response.schema.json#/$defs/Trigger"},"conditions":{"type":"array","items":{"$ref":"rule-response.schema.json#/$defs/Condition"}},
+    "actions":{"type":"array","items":{"$ref":"rule-response.schema.json#/$defs/Action"}}
+  }
+}
