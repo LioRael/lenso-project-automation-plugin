@@ -20,7 +20,7 @@ lenso-auth-sdk = { version = "0.2.1", git = "https://github.com/LioRael/lenso-au
 lenso-capability-access-control = { version = "0.1.0", git = "https://github.com/LioRael/lenso-access-control-plugin", rev = "de1e1f1ec61232b13fc90a05f1cb4e3fc96ba420" }
 # Keep the published dependency exact as well: this revision shares the
 # runtime/protocol graph required by the linked Port types.
-lenso-capability-jobs = { version = "=0.1.0", git = "https://github.com/LioRael/lenso-jobs-plugin", rev = "f677c7e6c515a08429d191647d77cafa596efdf6" }
+lenso-capability-jobs = { version = "=0.1.2", git = "https://github.com/LioRael/lenso-jobs-plugin", rev = "a8be81775df951fd8c958615519dea0ef179620d" }
 lenso-capability-organization-membership = { version = "0.1.0", git = "https://github.com/LioRael/lenso-organization-plugin", rev = "9572afd465ba2f952b646ec16935c0274f66c82a" }
 lenso-capability-projects = { version = "0.1.0", git = "https://github.com/LioRael/lenso-projects-plugin", rev = "70d1d6fb9ba5b05ff0100273ddfd10a424030edf" }
 lenso-capability-projects-collaboration = { version = "0.1.0", git = "https://github.com/LioRael/lenso-projects-plugin", rev = "70d1d6fb9ba5b05ff0100273ddfd10a424030edf" }
