@@ -134,10 +134,10 @@ database, migrates during activation, or stores credentials in configuration.
 Use the workspace wrapper locally:
 
 ```bash
-/Users/leosouthey/Projects/framework/.lenso-tools/bin/lenso-cargo fmt --all -- --check
-/Users/leosouthey/Projects/framework/.lenso-tools/bin/lenso-cargo check --workspace --all-targets --all-features
-/Users/leosouthey/Projects/framework/.lenso-tools/bin/lenso-cargo test --workspace --all-targets
-/Users/leosouthey/Projects/framework/.lenso-tools/bin/lenso-cargo clippy --workspace --all-targets --all-features -- -D warnings
+cargo fmt --all -- --check
+cargo check --workspace --all-targets --all-features
+cargo test --workspace --all-targets
+cargo clippy --workspace --all-targets --all-features -- -D warnings
 scripts/check-repository-boundary.sh
 scripts/check-package-source-set.sh
 ```
@@ -147,7 +147,7 @@ name starts with `lenso_project_automation_test`:
 
 ```bash
 LENSO_PROJECT_AUTOMATION_TEST_DATABASE_URL='postgres://.../lenso_project_automation_test' \
-  /Users/leosouthey/Projects/framework/.lenso-tools/bin/lenso-cargo test \
+  cargo test \
   -p lenso-project-automation-postgres-plugin --features postgres-acceptance
 ```
 
