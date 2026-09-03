@@ -5,6 +5,8 @@ Bounded, durable automation for `lenso.projects@1`. This repository publishes:
 - `lenso-capability-project-automation`: the descriptor-first portable
   `lenso.project-automation@1` contract;
 - `lenso-project-automation-postgres-plugin`: the linked native Rust Provider.
+- `lenso-project-automation-agent-tools-plugin`: a private linked adapter that
+  exposes rule management and execution inspection to Agent.
 
 ## Product boundary
 
@@ -41,6 +43,12 @@ commands use the exact `(caller Instance, actor subject, operation,
 idempotency_key)` scope. Trigger intake is unique per organization, source, and
 dedupe key. Each accepted execution owns an immutable action snapshot, so later
 rule revisions do not alter work already recorded by a trigger.
+
+The Agent adapter provides three parallel-safe reads (`get_rule`, `list_rules`,
+and `inspect_execution`) and four exclusive rule mutations (`create_rule`,
+`update_rule`, `set_rule_enabled`, and `delete_rule`). It deliberately does not
+expose `receive_event`, `receive_timer`, or `reconcile`: those remain trusted
+event, timer-worker, and recovery entrypoints rather than conversational Tools.
 
 ## Required capabilities
 
