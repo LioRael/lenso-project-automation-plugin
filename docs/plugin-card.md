@@ -48,3 +48,10 @@ ambiguous. Delivery is at-least-once, never advertised as exactly-once.
 Removing this Plugin removes rules, trigger intake, reconciliation, and its
 owned PostgreSQL schema. Projects and its data remain independently composed
 and callable; the Kernel deletion test proves that boundary.
+
+The separate `lenso.project-automation.agent-tools` adapter provides
+`lenso.agent.tool-provider@2` and requires exactly one
+`lenso.project-automation@1` provider. It owns no automation fact or lifecycle.
+Removing it removes only the Agent-facing catalog. Its seven Tools cover rule
+management and execution inspection; event intake, timer intake, and reconcile
+remain system-only Capability entrypoints.

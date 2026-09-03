@@ -13,6 +13,11 @@ for package in lenso-capability-project-automation lenso-project-automation-post
     exit 1
   fi
 done
+agent_tools_publish="$(jq -r '.packages[] | select(.name == "lenso-project-automation-agent-tools-plugin") | .publish | length' <<<"$metadata")"
+if [[ "$agent_tools_publish" != "0" ]]; then
+  printf 'lenso-project-automation-agent-tools-plugin must remain private\n' >&2
+  exit 1
+fi
 if ! jq -e '
   [.packages[] | select(
     (.name == "lenso-capability-project-automation" or .name == "lenso-project-automation-postgres-plugin") and
